@@ -28,8 +28,19 @@ class MainApp(App, MDApp):
 
     AUTORELOADER_PATHS = [(os.getcwd(), {"recursive": True})]
 
-    def build_app(self):
-        return Factory.MainScreenManager()
+    def build_app(self, **kwargs):
+        self.theme_cls.theme_style = 'Dark'
+        self.theme_cls.primary_palette = 'Red'
+        return Factory.LoginScreen()
+
+    def logger(self):
+        # self.root.ids.welcome_label.text = 'Clicked'
+        print('clicked')
+
+    def clear(self):
+        # self.root.ids.welcome_label.text = 'Welcome'
+        self.root.ids.user.text = ''
+        # self.root.ids.password.text = ''
 
 
 if __name__ == "__main__":
